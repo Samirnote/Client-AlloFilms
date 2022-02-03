@@ -7,7 +7,7 @@ const NavMain = () => {
 	return (
 		<nav className="NavMain">
 			<NavLink className="logo" to="/">
-				App name
+				AlloFilms
 			</NavLink>
 			{isLoggedIn && (
 				<>
@@ -17,8 +17,8 @@ const NavMain = () => {
 			)}
 			{!isLoggedIn && (
 				<>
-					<NavLink to="/signin">Log in</NavLink>
-					<NavLink to="/signup">Sign Up</NavLink>
+					<NavLink to="/signin">Log-in</NavLink>
+					<NavLink to="/signup">Sign-Up</NavLink>
 				</>
 			)}
 		</nav>
