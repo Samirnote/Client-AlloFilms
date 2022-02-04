@@ -14,17 +14,10 @@ function App() {
 	return (
 		<div className="App">
 			<NavMain />
-<<<<<<< HEAD
-			<FormComment />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/films" element={<AllFilms />} />
-=======
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/films" element={<FilmList/>}/>
-				<Route path="/films/:id" element={<Details/>} />
->>>>>>> da44600c116874c3d2b4a78e81674428d817f6f2
+				<Route path="/films" element={<FilmList />} />
+				<Route path="/films/:id" element={<Details />} />
 				<Route path="/signin" element={<Signin />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route element={<PrivateRoute />}>
