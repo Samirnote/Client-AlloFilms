@@ -6,7 +6,7 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import FilmList from "./pages/List";
-import FilmDetails from "./pages/Details";
+import Details from "./pages/Details";
 import PrivateRoute from "./components/ProtectedRoute/PrivateRoute";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/films" element={<FilmList/>}/>
-				<Route path="/films/:id" element={<FilmDetails/>} />
+				<Route path="/films/:id" element={<Details/>} />
 				<Route path="/signin" element={<Signin />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route element={<PrivateRoute />}>

@@ -8,8 +8,8 @@ const List = ()=>{
     const [films, setFilms] = useState ([]);
 
     useEffect(()=>{
-       axios
-        .get("http://localhost:4000/api/films")
+       apiHandler
+        .get("/api/films")
         .then((flms)=>{
             setFilms(flms.data)
         })
@@ -19,10 +19,9 @@ const List = ()=>{
     return (
 
         <ul>
-        {films.map(flm=>{
+        {films.map((flm, i)=>{
             return (
-            <li>{flm.name}</li>
-
+            <Link key={i} to={`/films/${flm._id}`}><li>{flm.name}</li></Link>
             )
         })}
         </ul>
