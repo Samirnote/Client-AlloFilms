@@ -40,12 +40,6 @@ const apiHandler = {
 			.catch(errorHandler);
 	},
 
-	// getAllTheCats() {
-	// 	return service
-	// 		.get("/api/cats")
-	// 		.then((res) => res.data)
-	// 		.catch(errorHandler);
-	// },
 };
 
 export default apiHandler;

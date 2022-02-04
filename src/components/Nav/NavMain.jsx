@@ -9,6 +9,9 @@ const NavMain = () => {
 			<NavLink className="logo" to="/">
 				AlloFilms
 			</NavLink>
+			<NavLink to="/films">
+				List
+			</NavLink>
 			{isLoggedIn && (
 				<>
 					<NavLink to="/profile">{currentUser && currentUser.email}</NavLink>
