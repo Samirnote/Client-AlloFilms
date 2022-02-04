@@ -6,14 +6,16 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import PrivateRoute from "./components/ProtectedRoute/PrivateRoute";
+import AllFilms from "./pages/AllFilms";
 
 function App() {
 	return (
 		<div className="App">
 			<NavMain />
-			<FormComment/>
+			<FormComment />
 			<Routes>
 				<Route path="/" element={<Home />} />
+				<Route path="/films" element={<AllFilms />} />
 				<Route path="/signin" element={<Signin />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route element={<PrivateRoute />}>
