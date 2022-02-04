@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import NavMain from "./components/Nav/NavMain";
+import FormComment from "./components/Forms/FormComment"
 import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
@@ -10,6 +11,7 @@ function App() {
 	return (
 		<div className="App">
 			<NavMain />
+			<FormComment/>
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/signin" element={<Signin />} />
