@@ -7,16 +7,20 @@ const CommentForm = ()=>{
     const {id} = useParams();
     const [content, setContent]= useState("");
 
-    const handleComment = (e)=>{
+    console.log(" useParams ", id)
+    console.log(" Content ", content)
+    
+    const handleComment = (e) => {
         e.preventDefault();
-        const newCom = {content}
-        console.log("je suis la : ", newCom);
+        //console.log('le submit marche ?')
+        //console.log(" Content dans handle comment", content)
+
 
         apiHandler
-			.post(`/${id}/comments`, newCom)
+			.post(`/api/${id}/comments`, {content, film : id})
             .then(response=>{console.log(response)})
 			.catch((error) => {
-				setError(error.response.data);
+				console.log(error);
 			});
 
     }
@@ -24,10 +28,9 @@ const CommentForm = ()=>{
     return (
         <>
         <form onSubmit={handleComment}>
-            <textarea type="text" name="content" onChange={setContent} />
+            <textarea type="text" name="content" onChange={(e) => setContent(e.target.value)} />
+            <button>Submit your comment</button>
         </form>
-
-        <button>Push</button>
         </>
     );
 }
