@@ -8,7 +8,7 @@ import Profile from "./pages/Profile";
 import FilmList from "./pages/List";
 import Details from "./pages/Details";
 import PrivateRoute from "./components/ProtectedRoute/PrivateRoute";
-import AllFilms from "./pages/AllFilms";
+
 
 function App() {
 	return (
