@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import apiHandler from "../api/apiHandler";
 import Searchbar from "../components/Forms/Searchbar";
