@@ -28,15 +28,51 @@ const Details = () => {
       }, []);
 
     return (
-        <>
-        {console.log(comments)}
+        <div className="film-details">
 
-            <p> Film : {details.name}</p>
+            <h1> Film : {details.name}</h1>
+            <p>{details.description}</p>
+            <img src={details.picture} alt={details.name} width="250px" />
+            <div className="trailer">
+                {console.log(details.videos)}
+                {/* details.videos[O].key */}
+                {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/Gtl-6RCOl84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+                {/* <iframe width="560" height="315" src={`https://www.youtube.com/embed/${details.videos[O].key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+            </div>
+
+            {/* <div className="casting">
+                <ul>
+                {details.cast.map((ele)=>{
+                    return(
+                    <li>
+                    {ele.name}
+                    </li>
+                    )
+                }
+                )}
+                </ul>
+            </div>
+
+            <div className="genre">
+                <ul>
+                {details.genre.map((ele)=>{
+                    return(
+                    <li>
+                    {ele.name}
+                    </li>
+                    )
+                }
+                )}
+                </ul>
+            </div> */}
+
+
+
+
             <FormComment  setComments={setComments} />
-
             <CommentList comments={comments} setComments={setComments} />
 
-        </>
+        </div>
 
     )
 }
