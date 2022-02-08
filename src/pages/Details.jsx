@@ -8,6 +8,8 @@ import CommentList from "../components/CommentList";
 const Details = () => {
     const [details, setDetails] = useState([]);
     const { id } = useParams();
+
+    const [comments, setComments] = useState([]);
     //console.log("useParams est celui la :", id);
     useEffect(() => {
         apiHandler
@@ -18,13 +20,21 @@ const Details = () => {
             })
     }, [details._id]);
 
+    useEffect(() => {
+        apiHandler
+          .get(`/api/films/${id}/comments`)
+          .then((comments) => setComments(comments.data))
+          .catch((err) => console.log(err));
+      }, []);
+
     return (
         <>
+        {console.log(comments)}
 
             <p> Film : {details.name}</p>
-            <FormComment />
+            <FormComment  setComments={setComments} />
 
-            <CommentList />
+            <CommentList comments={comments} setComments={setComments} />
 
         </>
 

@@ -1,11 +1,15 @@
 import { useState } from "react";
 import useForm from "../../hooks/useForm"
 import apiHandler from "../../api/apiHandler";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import CommentList from "./../CommentList"
 
-const CommentForm = ()=>{
+
+
+const CommentForm = ({setComments})=>{
     const {id} = useParams();
     const [content, setContent]= useState("");
+    const navigate = useNavigate();
 
     // console.log(" useParams ", id)
     // console.log(" Content ", content)
@@ -14,15 +18,19 @@ const CommentForm = ()=>{
         e.preventDefault();
         //console.log('le submit marche ?')
         //console.log(" Content dans handle comment", content)
-
-
+        
         apiHandler
 			.post(`/api/films/${id}/comments`, { content, film : id })
-            .then(response=>{console.log(response)})
+            .then((response)=>{
+                console.log(response)
+                console.log('RESPONNNNSEEEE', response.data)
+              
+                setComments(oldState =>  [...oldState, response.data])
+
+            })
 			.catch((error) => {
 				console.log(error);
 			});
-
     }
 
     return (
@@ -31,6 +39,7 @@ const CommentForm = ()=>{
             <textarea type="text" name="content" onChange={(e) => setContent(e.target.value)} />
             <button>Submit your comment</button>
         </form>
+    
         </>
     );
 }
