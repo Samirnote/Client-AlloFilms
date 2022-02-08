@@ -7,8 +7,8 @@ const CommentForm = ()=>{
     const {id} = useParams();
     const [content, setContent]= useState("");
 
-    console.log(" useParams ", id)
-    console.log(" Content ", content)
+    // console.log(" useParams ", id)
+    // console.log(" Content ", content)
     
     const handleComment = (e) => {
         e.preventDefault();
@@ -17,7 +17,7 @@ const CommentForm = ()=>{
 
 
         apiHandler
-			.post(`/api/${id}/comments`, {content, film : id})
+			.post(`/api/films/${id}/comments`, { content, film : id })
             .then(response=>{console.log(response)})
 			.catch((error) => {
 				console.log(error);
