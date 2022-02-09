@@ -18,7 +18,8 @@ const List = () => {
   }, [searchQuery]);
 
   const handlePagenext =()=>{
-    if (loadPageLockRef.current || offsetRef.current > 515) { // condition pour arreter la pagination
+    console.log("films.length",films.length)
+    if (loadPageLockRef.current || !films.length) { // condition pour arreter la pagination
      return;
     }
 

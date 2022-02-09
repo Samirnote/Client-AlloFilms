@@ -1,12 +1,11 @@
 import { useState } from "react";
-
 import apiHandler from "../../api/apiHandler";
 import { useParams, useNavigate } from "react-router-dom";
-//import CommentList from "./../CommentList"
-
+import useAuth from "../../auth/useAuth.js";
 
 
 const CommentForm = ({setComments})=>{
+    const {isLoggedIn} = useAuth();
     const {id} = useParams();
     const [content, setContent]= useState("");
     const navigate = useNavigate();
@@ -35,11 +34,12 @@ const CommentForm = ({setComments})=>{
 
     return (
         <>
+        {isLoggedIn &&
         <form onSubmit={handleComment}>
             <textarea type="text" name="content" onChange={(e) => setContent(e.target.value)} />
             <button>Submit your comment</button>
         </form>
-    
+        }
         </>
     );
 }

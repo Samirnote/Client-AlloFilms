@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import apiHandler from "../api/apiHandler";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import useAuth from "../auth/useAuth";
 
 const CommentList = ({comments, setComments}) => {
- 
+  const {isLoggedIn, currentUser} = useAuth();
   const [comment, setComment] = useState('');
   const [showTextArea, setShowTextArea] = useState({id: null, show:false})
   const { id } = useParams();
@@ -39,13 +40,6 @@ const CommentList = ({comments, setComments}) => {
           
   }
 
- 
-
-
-//   useEffect(() => {
-//     handleUpdateComment()
-//   }, [comments]);
-
 
 
   return (
@@ -57,8 +51,12 @@ const CommentList = ({comments, setComments}) => {
             <li key={comment._id}>
               <span>{comment.author.name}</span> : 
               <span>{comment.content}</span>
-              <button onClick={() => setShowTextArea({id: comment._id,show: !showTextArea.show})}>Edit</button>
-            {showTextArea.id === comment._id && showTextArea.show && (
+              {console.log("currentUser", currentUser)}
+              {console.log("author", comment.author.name)}
+              {isLoggedIn && currentUser.name === comment.author.name &&(
+              <button onClick={() => setShowTextArea({id: comment._id,show: !showTextArea.show})}>Edit</button>)}
+              {showTextArea.id === comment._id && showTextArea.show  && isLoggedIn && currentUser &&(
+                
                 <>
                 <textarea name="" id="" cols="30" rows="10" defaultValue={comment.content} onChange={(e)=>{setComment(e.target.value)}}></textarea>
                 <button onClick={() => handleUpdateComment(comment._id, index)}>Save edit</button>
@@ -66,7 +64,9 @@ const CommentList = ({comments, setComments}) => {
                 
                 </>
             )}
-            <button onClick={() => handleDelete(comment._id)}>Delete</button>
+            {isLoggedIn && currentUser.name === comment.author.name &&(
+            <button onClick={() => handleDelete(comment._id)}>Delete</button>)}
+            
             </li>
           );
         })}
