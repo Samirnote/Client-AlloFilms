@@ -6,8 +6,8 @@ import Searchbar from "../components/Forms/Searchbar";
 
 const List = () => {
   const [films, setFilms] = useState([]);
-  const offsetRef = useRef(0);
-  const loadPageLockRef = useRef(false);
+  const offsetRef = useRef(0); // au lieu de useState parceque ca ne rerender pas
+  const loadPageLockRef = useRef(false); // pour ne pas beuguer le code quand on click plusieur fois
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
@@ -18,8 +18,8 @@ const List = () => {
   }, [searchQuery]);
 
   const handlePagenext =()=>{
-    if (loadPageLockRef.current || offsetRef.current > 515) {
-      return;
+    if (loadPageLockRef.current || offsetRef.current > 515) { // condition pour arreter la pagination
+     return;
     }
 
     loadPageLockRef.current = true;
@@ -33,13 +33,14 @@ const List = () => {
     .catch(
       (err) => {
         console.error(err);
-        loadPageLockRef.current = false;}
+        loadPageLockRef.current = false;
+      }
     );
   }
 
   const handlePageprev =()=>{
     if (loadPageLockRef.current || offsetRef.current < 1) {
-      return;
+    return;
     }
 
     loadPageLockRef.current = true;
@@ -53,7 +54,8 @@ const List = () => {
     .catch(
       (err) => {
         console.error(err);
-        loadPageLockRef.current = false;}
+        loadPageLockRef.current = false;
+      }
     );
   }
 
