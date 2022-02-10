@@ -28,7 +28,8 @@ ul {
 
 /*/                                 HEADER                                 /*/
 
-header.Header {
+header.Header,
+footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -36,13 +37,29 @@ header.Header {
   height: 120px;
 }
 
-header .logo {
-  height: 120px;
-}
-
-.NavMain {
+.NavMain,
+#footerLinks {
   display: flex;
   flex-direction: row;
+}
+
+.Link {
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+.active {
+  font-weight: bold;
+}
+
+button#removeUser {
+  padding: 0.8rem 1rem;
+  background-color: rgb(148, 238, 148);
+  border: 2px solid rgb(10, 183, 85);
+  border-radius: 10%;
+  color: rgb(103, 103, 226);
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 /*/                              LAST RELEASED                              /*/
@@ -108,10 +125,6 @@ header .logo {
   border-radius: 20px;
 }
 
-.comment-infos {
-  /* background-color: beige; */
-}
-
 .comment-content {
   font-style: italic;
 }
@@ -149,3 +162,13 @@ header .logo {
 .Profile button {
   margin: 20px;
 }
+/*/                                DETAILS                                 /*/
+
+/*/                                 LIST                                  /*/
+
+.List {
+  display: flex;
+  flex-direction: column;
+}
+
+/*                                 PROFIL                                  */
