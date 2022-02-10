@@ -32,11 +32,9 @@ function LastComments() {
   }
 
   return (
-    <>
-      <div> ON EST LA !</div>
-
-      <section className="last-released">
-        <h2>Last comments on films:</h2>
+    <section className="LastComments">
+      <h2>Last comments on films:</h2>
+      <div className="last-commented-box">
         {comments.map((comment) => {
           //   if (!(comment.film && comment.author)) return <p>Loading...</p>;
           //   if (
@@ -47,24 +45,30 @@ function LastComments() {
           //   }
 
           return (
-            <div key={comment._id} className="comment">
+            <div key={comment._id} className="comment-box">
               <div className="image-author">
-                {/* <img
-                src={comment.picture}
-                width="300"
-                alt="travel image"
-                className="image"
-              /> */}
+                <img
+                  src={comment.author.avatar}
+                  alt="travel image"
+                  className="image"
+                />
               </div>
               <div className="comment-infos">
-                "{comment.content}" at {comment.date} on {comment.film.name} by_
-                {comment.author.name}
+                <div className="comment-content">{comment.content}</div>
+                <div className="comment-date">
+                  {comment.date.substring(0, 11)}
+                </div>
+                on:{" "}
+                <span className="comment-film-name">{comment.film.name}</span>
+                <br></br>
+                by:{" "}
+                <span className="comment-author">{comment.author.name}</span>
               </div>
             </div>
           );
         })}
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 
