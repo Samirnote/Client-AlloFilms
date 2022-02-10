@@ -28,25 +28,27 @@ const LastReleased = () => {
     //       </div>
     //   </div>
 
-    <section className="last-released">
+    <section className="LastReleased">
       <h2>Last released films:</h2>
-      {films.map((film) => {
-        return (
-          <div key={film._id} className="film">
-            <div className="image-film">
-              <img
-                src={film.picture}
-                width="300"
-                alt="travel image"
-                className="image"
-              />
+      <div className="last-released-box">
+        {films.map((film) => {
+          return (
+            <div key={film._id} className="film">
+              <div className="image-film">
+                <img src={film.picture} alt="travel image" className="image" />
+              </div>
+              <div className="film-infos">
+                {/* <span className="film-name">{film.name}</span>{" "} */}
+
+                {console.log(film.releaseDate.substring(0, 7))}
+                <span className="film-release">
+                  released on : {film.releaseDate.substring(0, 7)}
+                </span>
+              </div>
             </div>
-            <div className="film-infos">
-              {film.name} : {film.releaseDate}
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </section>
   );
 };

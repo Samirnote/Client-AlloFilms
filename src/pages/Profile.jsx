@@ -4,63 +4,74 @@ import apiHandler from "../api/apiHandler";
 import { useState } from "react";
 
 const Profile = () => {
-	const { currentUser, authenticateUser, storeToken} = useAuth();
-	const[avatar, setAvatar]= useState(currentUser?.avatar);
-	const [name, setName]= useState(currentUser?.name);
-	const [updateForm, setUpdateForm] = useState(false);
-	
-	const handleSubmit = async (e)=>{
-		e.preventDefault()
-		const fd = new FormData()
+  const { currentUser, authenticateUser, storeToken } = useAuth();
+  const [avatar, setAvatar] = useState(currentUser?.avatar);
+  const [name, setName] = useState(currentUser?.name);
+  const [updateForm, setUpdateForm] = useState(false);
 
-		fd.append("name", name)
-		fd.append("avatar", avatar)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const fd = new FormData();
 
-		try{
-			
-		const response = await apiHandler.patch(`/api/auth/profile/update/${currentUser._id}`, fd)
+    fd.append("name", name);
+    fd.append("avatar", avatar);
 
-		const token = response.data.authToken
-		
-		//console.log(token)
-		//console.log("avatar est la :", avatar)
+    try {
+      const response = await apiHandler.patch(
+        `/api/auth/profile/update/${currentUser._id}`,
+        fd
+      );
 
-		storeToken(token)
-		authenticateUser();
+      const token = response.data.authToken;
 
-		setUpdateForm(false);
+      //console.log(token)
+      //console.log("avatar est la :", avatar)
 
-		}catch(err){
-			console.log(err);
-		}
-	}
+      storeToken(token);
+      authenticateUser();
 
+      setUpdateForm(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-	return (
-		<div>
-			
-			<p>Welcome to your profile : {currentUser.name} </p>
-			
-			<img src={`${currentUser.avatar}`} alt={currentUser.name}/>
-			
-			
-			<button onClick={()=>{setUpdateForm(!updateForm)}}>Update your profile</button>
-			
-			{updateForm &&
-			<form onSubmit={handleSubmit} >
-				<label htmlFor={currentUser.name}>Change your name :</label>
-				<input type="text" name="name" value={name} onChange={(e)=>setName(e.target.value)}/>
+  return (
+    <div className="Profile">
+      <h2>Welcome to your profile : {currentUser.name} !</h2>
 
+      <img src={`${currentUser.avatar}`} alt={currentUser.name} />
 
-				<label htmlFor={currentUser.avatar}>Change your picture :</label>
-				<input type="file" name="avatar"  onChange={(e)=>setAvatar(e.target.files[0])}/>
+      <button
+        onClick={() => {
+          setUpdateForm(!updateForm);
+        }}
+      >
+        Update your profile
+      </button>
 
-				<button>Submit</button>
-			</form>
-			} 
-			
-		</div>
-	);
+      {updateForm && (
+        <form onSubmit={handleSubmit}>
+          <label htmlFor={currentUser.name}>Change your name :</label>
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <label htmlFor={currentUser.avatar}>Change your picture :</label>
+          <input
+            type="file"
+            name="avatar"
+            onChange={(e) => setAvatar(e.target.files[0])}
+          />
+
+          <button>Submit</button>
+        </form>
+      )}
+    </div>
+  );
 };
 
 export default Profile;

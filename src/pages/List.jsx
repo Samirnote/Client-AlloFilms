@@ -17,70 +17,79 @@ const List = () => {
       .catch((err) => console.error(err));
   }, [searchQuery]);
 
-  const handlePagenext =()=>{
-    console.log("films.length",films.length)
+  const handlePagenext = () => {
+    console.log("films.length", films.length)
     if (loadPageLockRef.current || !films.length) { // condition pour arreter la pagination
-     return;
+      return;
     }
 
     loadPageLockRef.current = true;
     offsetRef.current += 15;
     apiHandler
-    .get("/api/films", { params: { q: searchQuery, offset: offsetRef.current } })
-    .then((flms) => {
-      setFilms(flms.data); 
-      loadPageLockRef.current = false;
-    })
-    .catch(
-      (err) => {
-        console.error(err);
+      .get("/api/films", { params: { q: searchQuery, offset: offsetRef.current } })
+      .then((flms) => {
+        setFilms(flms.data);
         loadPageLockRef.current = false;
-      }
-    );
+      })
+      .catch(
+        (err) => {
+          console.error(err);
+          loadPageLockRef.current = false;
+        }
+      );
   }
 
-  const handlePageprev =()=>{
+  const handlePageprev = () => {
     if (loadPageLockRef.current || offsetRef.current < 1) {
-    return;
+      return;
     }
 
     loadPageLockRef.current = true;
     offsetRef.current -= 15;
     apiHandler
-    .get("/api/films", { params: { q: searchQuery, offset: offsetRef.current } })
-    .then((flms) => {
-      setFilms(flms.data); 
-      loadPageLockRef.current = false;
-    })
-    .catch(
-      (err) => {
-        console.error(err);
+      .get("/api/films", { params: { q: searchQuery, offset: offsetRef.current } })
+      .then((flms) => {
+        setFilms(flms.data);
         loadPageLockRef.current = false;
-      }
-    );
+      })
+      .catch(
+        (err) => {
+          console.error(err);
+          loadPageLockRef.current = false;
+        }
+      );
   }
 
   console.log("q:", searchQuery);
   console.log(films);
 
   return (
-    <>
+    <section id='List' className='List'>
       <h1>Our list of films</h1>
       <Searchbar searchCallback={setSearchQuery} />
-      
-        {films.map((flm, i) => {
-          return (
-            <Link key={i} to={`/films/${flm._id}`}>
-              <div> <img src={flm.picture} alt={flm.name} width="100px" /> {flm.name} ({flm.releaseDate})</div>
-      
-            </Link>
-          );
-        })}
-     
-      <button onClick={handlePageprev}>prev</button>
-      Page number: {offsetRef.current/15} 
-      <button onClick={handlePagenext}>next</button>
-    </>
+
+      <div className="pagination">
+        <button onClick={handlePageprev}>prev</button>
+        Page number: {offsetRef.current / 15}
+        <button onClick={handlePagenext}>next</button>
+      </div>
+
+      {films.map((flm, i) => {
+        return (
+          <Link id="filmCard" className="filmCard" key={i} to={`/films/${flm._id}`}>
+            <div >
+              <img src={flm.picture} alt={flm.name} width="100px" />
+              <h3>{flm.name}</h3> {/*({flm.releaseDate}) */}
+            </div>
+          </Link>
+        );
+      })}
+      <div className="pagination">
+        <button onClick={handlePageprev}>prev</button>
+        Page number: {offsetRef.current / 15}
+        <button onClick={handlePagenext}>next</button>
+      </div>
+    </section>
   );
 };
 
