@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getSliderData } from "./SliderData";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 import apiHandler from "../api/apiHandler";
+import "../styles/ImageSlider.css";
 
 const ImageSlider = () => {
   const [current, setCurrent] = useState(0);
@@ -43,12 +44,7 @@ const ImageSlider = () => {
           >
             {console.log(slide)}
             {index === current && (
-              <img
-                src={slide}
-                width="300"
-                alt="travel image"
-                className="image"
-              />
+              <img src={slide} alt="travel image" className="image-slider" />
             )}
           </div>
         );

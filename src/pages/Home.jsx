@@ -6,7 +6,7 @@ import LastReleased from "./../components/LastReleased";
 const Home = () => {
   return (
     <div>
-      <h1>Welcome 🏡</h1>
+      <h1>Welcome to Allo-Films!</h1>
 
       <div className="carousel">
         <ImageSlider />
