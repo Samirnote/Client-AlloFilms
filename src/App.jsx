@@ -22,7 +22,6 @@ function App() {
 				<Route path="/signup" element={<Signup />} />
 				<Route element={<PrivateRoute />}>
 					<Route path="/profile" element={<Profile />} />
-					{/* <Route path="/films/:id/comment" element={<FormComment/>} /> */}
 				</Route>
 			</Routes>
 		</div>

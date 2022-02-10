@@ -33,25 +33,24 @@ const Details = () => {
       <p>{details.description}</p>
       <img src={details.picture} alt={details.name} width="250px" />
       <div className="trailer">
-        {console.log(details.videos)}
-        {console.log(details.videos[0].key)}
+        
         {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/Gtl-6RCOl84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
         <iframe
           width="560"
           height="315"
           src={`https://www.youtube.com/embed/${details.videos[0].key}`}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
 
       <div className="casting">
         <h2>Casting:</h2>
         <ul>
-          {details.cast.map((ele) => {
-            return <li>{ele.name}</li>;
+          {details.cast.map((ele, i) => {
+            return <li key={i}>{ele.name}</li>;
           })}
         </ul>
       </div>
@@ -59,8 +58,8 @@ const Details = () => {
       <div className="genre">
         <h2>Genres:</h2>
         <ul>
-          {details.genre.map((ele) => {
-            return <li>{ele.name}</li>;
+          {details.genre.map((ele, i) => {
+            return <li key={i}>{ele.name}</li>;
           })}
         </ul>
       </div>
@@ -68,9 +67,9 @@ const Details = () => {
       <div className="crew">
         <h2>Crew:</h2>
         <ul>
-          {details.crew.map((ele) => {
+          {details.crew.map((ele, i) => {
             return (
-              <li>
+              <li key={i}>
                 {ele.job} : {ele.name}
               </li>
             );
