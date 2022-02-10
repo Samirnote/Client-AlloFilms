@@ -29,7 +29,8 @@ ul {
 
 /*/                                 HEADER                                 /*/
 
-header.Header {
+header.Header,
+footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -37,11 +38,8 @@ header.Header {
     height: 120px;
 }
 
-header .logo {
-    height: 120px;
-}
-
-.NavMain {
+.NavMain,
+#footerLinks {
     display: flex;
     flex-direction: row;
 }
@@ -76,6 +74,11 @@ button#removeUser {
 
 
 /*/                                 LIST                                  /*/
+
+.List {
+    display: flex;
+    flex-direction: column;
+}
 
 
 /*                                 PROFIL                                  */

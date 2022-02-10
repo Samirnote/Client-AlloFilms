@@ -64,7 +64,7 @@ const List = () => {
   console.log(films);
 
   return (
-    <>
+    <section id='List' className='List'>
       <h1>Our list of films</h1>
       <Searchbar searchCallback={setSearchQuery} />
       
@@ -80,7 +80,7 @@ const List = () => {
       <button onClick={handlePageprev}>prev</button>
       Page number: {offsetRef.current/15} 
       <button onClick={handlePagenext}>next</button>
-    </>
+    </section>
   );
 };
 
