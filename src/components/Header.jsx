@@ -6,8 +6,8 @@ import logo from "./../assets/logo.png";
 
 function Header() {
   return (
-    <header>
-      <img src={logo} alt="logo image" />
+    <header id='Header' className='Header'>
+      <img className='logo' src={logo} alt="logo image" />
       <NavMain />
     </header>
   );

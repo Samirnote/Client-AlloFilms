@@ -8,7 +8,7 @@ const Home = () => {
     <div>
       <h1>Welcome to Allo-Films!</h1>
 
-      <div className="carousel">
+      <div id='Home' className="Home">
         <ImageSlider />
         <LastReleased />
         <LastComments />

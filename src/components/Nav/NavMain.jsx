@@ -1,26 +1,26 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import useAuth from "../../auth/useAuth";
-import "./../../styles/NavMain.css";
+
 
 const NavMain = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();
   return (
-    <nav className="NavMain">
-      <NavLink className="logo" to="/">
+    <nav id='NavMain' className="NavMain">
+      <NavLink className="title Link" to="/">
         AlloFilms
       </NavLink>
-      <NavLink to="/films">List</NavLink>
+      <NavLink className="Link" to="/films">Films</NavLink>
       {isLoggedIn && (
-        <>
-          <NavLink to="/profile">{currentUser && currentUser.email}</NavLink>
-          <button onClick={removeUser}>Log-Out</button>
-        </>
+        <div id='logging' className='logging'>
+          <NavLink to="/profile">Profile</NavLink>
+          <button id='removeUser' clasName='removeUser' onClick={removeUser}>Log-Out</button>
+        </div>
       )}
       {!isLoggedIn && (
-        <>
-          <NavLink to="/signin">Log-in</NavLink>
-          <NavLink to="/signup">Sign-Up</NavLink>
-        </>
+        <div id='logging' className='logging'>
+          <Link className='Link' to="/signin">Sign-in</Link>
+          <Link className='Link' to="/signup">Sign-Up</Link>
+        </div>
       )}
     </nav>
   );
