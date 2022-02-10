@@ -11,7 +11,7 @@ const NavMain = () => {
       <NavLink className="Link" to="/films">Films</NavLink>
       {isLoggedIn && (<>
           <NavLink className="Link" to="/profile">Profile</NavLink>
-          <button id='removeUser' clasName='removeUser' onClick={removeUser}>LogOut</button>
+          <button id='removeUser' className='removeUser' onClick={removeUser}>LogOut</button>
           </>
       )}
       </div>

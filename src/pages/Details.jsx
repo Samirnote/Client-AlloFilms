@@ -28,10 +28,17 @@ const Details = () => {
   if (!details.name) return <p>Loading...</p>;
   return (
     <div className="film-details">
-      <h1> Film : {details.name}</h1>
+      <div className="details-date">
+      <h1> Film : {details.name}</h1> 
+      <br/>
       <h2>Release date : {details.releaseDate}</h2>
+      </div>
+      <div className="details-description">
       <p>{details.description}</p>
+      </div>
+      <div className="details-picture">
       <img src={details.picture} alt={details.name} width="250px" />
+      </div>
       <div className="trailer">
         
         {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/Gtl-6RCOl84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
@@ -50,7 +57,7 @@ const Details = () => {
         <h2>Casting:</h2>
         <ul>
           {details.cast.map((ele, i) => {
-            return <li key={i}>{ele.name}</li>;
+            return <li className="casting-element" key={i}>{ele.name}</li>;
           })}
         </ul>
       </div>
@@ -59,7 +66,7 @@ const Details = () => {
         <h2>Genres:</h2>
         <ul>
           {details.genre.map((ele, i) => {
-            return <li key={i}>{ele.name}</li>;
+            return <li className="genre-element" key={i}>{ele.name}</li>;
           })}
         </ul>
       </div>
@@ -69,16 +76,17 @@ const Details = () => {
         <ul>
           {details.crew.map((ele, i) => {
             return (
-              <li key={i}>
+              <li className="crew-element" key={i}>
                 {ele.job} : {ele.name}
               </li>
             );
           })}
         </ul>
       </div>
-
+      <div className="details-comment">
       <FormComment setComments={setComments} />
       <CommentList comments={comments} setComments={setComments} />
+      </div>
     </div>
   );
 };

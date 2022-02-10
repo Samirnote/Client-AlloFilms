@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import UserProvider from "./auth/UserProvider";
-import "./styles/reset.css";
 import "./styles/global.css";
 
 ReactDOM.render(
