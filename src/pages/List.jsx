@@ -67,15 +67,16 @@ const List = () => {
     <>
       <h1>Our list of films</h1>
       <Searchbar searchCallback={setSearchQuery} />
-      <ul>
+      {/* <ul> */}
         {films.map((flm, i) => {
           return (
             <Link key={i} to={`/films/${flm._id}`}>
-              <li>{flm.name}</li>
+              <div> <img src={flm.picture} alt={flm.name} width="100px" /> {flm.name} ({flm.releaseDate})</div>
+              {/* <li><img src={details.picture} alt={details.name} width="100px" /> {flm.name} ({flm.releaseDate}) </li> */}
             </Link>
           );
         })}
-      </ul>
+      {/* </ul> */}
       <button onClick={handlePageprev}>prev</button>
       Page number: {offsetRef.current/15} 
       <button onClick={handlePagenext}>next</button>
