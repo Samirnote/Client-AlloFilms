@@ -6,16 +6,15 @@ const NavMain = () => {
   const { isLoggedIn, currentUser, removeUser } = useAuth();
   return (
     <nav id='NavMain' className="NavMain">
-      <NavLink className="title Link" to="/">
-        AlloFilms
-      </NavLink>
+    <div>
+      <NavLink className="title Link" to="/">Homepage</NavLink>
       <NavLink className="Link" to="/films">Films</NavLink>
-      {isLoggedIn && (
-        <div id='logging' className='logging'>
-          <NavLink to="/profile">Profile</NavLink>
-          <button id='removeUser' clasName='removeUser' onClick={removeUser}>Log-Out</button>
-        </div>
+      {isLoggedIn && (<>
+          <NavLink className="Link" to="/profile">Profile</NavLink>
+          <button id='removeUser' clasName='removeUser' onClick={removeUser}>LogOut</button>
+          </>
       )}
+      </div>
       {!isLoggedIn && (
         <div id='logging' className='logging'>
           <Link className='Link' to="/signin">Sign-in</Link>

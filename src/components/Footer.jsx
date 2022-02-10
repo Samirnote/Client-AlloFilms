@@ -8,11 +8,13 @@ function Footer() {
   return (
     <footer>
       <img src={logo} alt="logo image" />
+      <div>
       <Link to="/contact">Contact Us</Link>
       <Link to="/legal">Legal</Link>
       <Link to="/Legal">Facebook</Link>
       <Link to="/Legal">Twitter</Link>
       <Link to="/Legal">Instagram</Link>
+      </div>
     </footer>
   );
 }
