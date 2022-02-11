@@ -1,17 +1,16 @@
 .slider {
     position: relative;
-    
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin: 3em 0;
 }
 
 .image-slider {
 
     border-radius: 10px;
-    width: 353px;
-    height: 528px;
+    width: 24vw;
+    height: auto;
 }
 
 .right-arrow {
@@ -39,7 +38,6 @@
 .slide {
     opacity: 0;
     transition-duration: 1s ease;
-    width: 1000px;
 }
 
 .slide.active {
@@ -47,6 +45,4 @@
     transition-duration: 1s;
     transform: scale(1.08);
     width: 1000px;
-    width: 353px;
-    height: 528px;
 }

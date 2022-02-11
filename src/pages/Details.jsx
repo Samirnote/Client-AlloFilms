@@ -36,6 +36,7 @@ const Details = () => {
       <div className="details-description">
       <p>{details.description}</p>
       </div>
+      <div className="group-detail">
       <div className="details-picture">
       <img src={details.picture} alt={details.name} width="250px" />
       </div>
@@ -52,36 +53,38 @@ const Details = () => {
           allowFullScreen
         ></iframe>
       </div>
-
+      </div>
+      <div className="group-info">
       <div className="casting">
         <h2>Casting:</h2>
-        <ul>
+        <ul className="detail-ul">
           {details.cast.map((ele, i) => {
-            return <li className="casting-element" key={i}>{ele.name}</li>;
+            return <li className="details-element" key={i}>{ele.name}</li>;
           })}
         </ul>
       </div>
 
       <div className="genre">
         <h2>Genres:</h2>
-        <ul>
+        <ul className="detail-ul">
           {details.genre.map((ele, i) => {
-            return <li className="genre-element" key={i}>{ele.name}</li>;
+            return <li className="details-element" key={i}>{ele.name}</li>;
           })}
         </ul>
       </div>
 
       <div className="crew">
         <h2>Crew:</h2>
-        <ul>
+        <ul className="detail-ul">
           {details.crew.map((ele, i) => {
             return (
-              <li className="crew-element" key={i}>
+              <li className="details-element" key={i}>
                 {ele.job} : {ele.name}
               </li>
             );
           })}
         </ul>
+      </div>
       </div>
       <div className="details-comment">
       <FormComment setComments={setComments} />

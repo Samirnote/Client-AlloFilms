@@ -31,7 +31,7 @@ const FormSignIn = () => {
 	return (
 		<>
 			{error && <h3 className="error">{error.message}</h3>}
-			<form onSubmit={handleSubmit}>
+			<form className="formSignInSignUp" onSubmit={handleSubmit}>
 				<h2>Signin</h2>
 				<label htmlFor="email">Email</label>
 				<input

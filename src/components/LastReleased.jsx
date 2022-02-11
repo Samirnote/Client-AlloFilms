@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import apiHandler from "../api/apiHandler";
+import {Link} from "react-router-dom";
 
 const LastReleased = () => {
   const [films, setFilms] = useState([]);
@@ -15,25 +16,18 @@ const LastReleased = () => {
     }
   }, []);
 
-  //   if (!Array.isArray(films) || films.length <= 0) {
-  //     return null;
-  //   }
+  
   if (!films) return <p>Loading...</p>;
 
   return (
-    //   <div>
-    //       <div>
-    //            <img src="image du film" alt="" />
-    //          <h3>nom du film</h3>
-    //       </div>
-    //   </div>
 
     <section className="LastReleased">
       <h2>Last released films:</h2>
       <div className="last-released-box">
         {films.map((film) => {
           return (
-            <div key={film._id} className="film">
+            <Link to={`/films/${film._id}`} >
+              <div key={film._id} className="film">
               <div className="image-film">
                 <img src={film.picture} alt="travel image" className="image" />
               </div>
@@ -46,6 +40,7 @@ const LastReleased = () => {
                 </span>
               </div>
             </div>
+            </Link>
           );
         })}
       </div>

@@ -70,7 +70,7 @@ const List = () => {
 
       <div className="pagination">
         <button onClick={handlePageprev}>prev</button>
-        Page number: {offsetRef.current / 15}
+        Page number: {(offsetRef.current / 15)+1}
         <button onClick={handlePagenext}>next</button>
       </div>
 

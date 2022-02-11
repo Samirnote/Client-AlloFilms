@@ -23,7 +23,7 @@ const FormSignUp = () => {
 	return (
 		<>
 			{error && <h3 className="error">{error.message}</h3>}
-			<form onSubmit={handleSubmit}>
+			<form className="formSignInSignUp" onSubmit={handleSubmit}>
 				<h2>Signup</h2>
 				<label htmlFor="name">Name</label>
 				<input

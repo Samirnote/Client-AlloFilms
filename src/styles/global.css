@@ -15,6 +15,10 @@ a {
     color: inherit;
 }
 
+h1, h2 {
+    text-transform: uppercase;
+}
+
 ul {
     list-style-type: none;
 }
@@ -44,6 +48,34 @@ footer .logo {
     height: 120px;
 }
 
+.formSignInSignUp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 50%;
+    min-height: 50vh;
+    flex-direction: column;
+    margin: 6rem auto;
+    border : solid #ddd;
+    padding: 10px;
+}
+
+.formSignInSignUp input{
+    width: 30%;
+    padding: 0.5rem;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.formSignInSignUp button{
+    padding: 7px;
+    margin: 10px;
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
 .NavMain,
 #footerLinks {
     display: flex;
@@ -61,10 +93,10 @@ footer .logo {
 
 button#removeUser {
     padding: 0.8rem 1rem;
-    background-color: rgb(148, 238, 148);
-    border: 2px solid rgb(10, 183, 85);
+    background-color: rgb(11, 12, 11);
+    border: 2px solid rgb(8, 12, 10);
     border-radius: 10%;
-    color: rgb(103, 103, 226);
+    color: rgb(224, 13, 41);
     font-weight: 900;
     text-transform: uppercase;
 }
@@ -214,8 +246,13 @@ button#removeUser {
 .detail-ul{
    display: flex;
   justify-content: center;
-  flex-direction: row; 
+  flex-direction: row;
+  gap:1rem;
 }
+
+.details-element{
+   padding:1rem;
+ }
 
 /*/                                 LIST                                  /*/
 
@@ -235,6 +272,14 @@ button#removeUser {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+}
+
+.searchbar input{
+    width: 40vw;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    text-align: left;
 }
 
 .filmCard {
@@ -269,3 +314,4 @@ button#removeUser {
     gap: 3rem;
     align-items: center;
 }
+
